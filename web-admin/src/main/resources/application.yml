@@ -1,0 +1,44 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /ui
+    session:
+      cookie:
+        name: UISESSION
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    clientId: ClientId
+    clientSecret: secret
+    accessTokenUri: http://localhost:8083/auth/oauth/token
+    userAuthorizationUri: http://localhost:8083/auth/oauth/authorize
+  resource:
+    productsInfoUri: http://localhost:8083/auth/api/v1/products
+
+
+
+api:
+  url: "http://localhost:8083"
+  prefix:
+    product: "products"
+    user: "users"
+    role: "roles"
+    category: "categories"
+    order: "orders"
+
+cloudinary:
+  cloud_name: datntse03734
+  api_key: 363599322344723
+  api_secret: Fl4U-SDYRVgJO9X5xnTJGXxMiX4
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 10MB
+      max-request-size: 15MB
+  thymeleaf:
+    cache: false
