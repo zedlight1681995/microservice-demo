@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/microservice-demo.iml" filepath="$PROJECT_DIR$/microservice-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-admin/web-admin.iml" filepath="$PROJECT_DIR$/web-admin/web-admin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-client/web-client.iml" filepath="$PROJECT_DIR$/web-client/web-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web-service/web-service.iml" filepath="$PROJECT_DIR$/web-service/web-service.iml" />
+    </modules>
+  </component>
+</project>

@@ -12,6 +12,7 @@ public class CustomUserDetails extends User {
     private String uuid;
     private String username;
     private String fullName;
+    private String something;
 
     public CustomUserDetails(UserDTO user) {
         super(user.getEmail(), user.getPassword(), user.getRoles());
