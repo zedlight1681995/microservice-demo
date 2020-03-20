@@ -8,8 +8,6 @@ security:
   basic:
     enabled: false
 
-
-
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -51,47 +49,47 @@ logging:
           webserver: TRACE
 
 config:
-  oauth2:
-    clientId: thanhdat
-    clientSecret: thanhdat@1995
-    accesstoken_validity: 1
-    refreshtoken_validity: 30
-    privateKey: -----BEGIN RSA PRIVATE KEY-----
-      MIIEpAIBAAKCAQEApLTwQcmR3WoO3taawC7HKz/erVJBG7dm+8lVSs0zC+fC+lOk
-      VkKvmPXO1z1tYqvb36/HKK8kh707qNHIAEyWuYOg8kdSyR2ui6RkCjcON+VkraEn
-      NmdJ6qFYVofe1rIRriwlRLuSJiUMEvq3xO76VmuAuIhFIUguHFNILZdFQrefphpq
-      KCIzCDDsahEZAOkvRSUr+aFIDJ7W3F8QaG7laxhkRrCMGmlmiejxo6lucKeAD4nB
-      kXA1NIvFgb9Sa7vn9AbakXT38H74hKp7i3jrfWVkYhm/UxoJ3ELCh4I/gK0lJadN
-      7fbgy0Z+14J+esUDSljZL93drshYOA6ij6z7AwIDAQABAoIBAQCK9EOFnQK8Y4+s
-      HC1uWYiaSkYYvz5CndX6Mf8NHlUkhCCQhCQuyg/O4gHgwOgZyJe0/VzuS+RryBAe
-      +uzao8K9O/l6rQWAutPY55WmsJAERDlN6plkYnuPwRL/3Zz4UD5uTLwcYoqIN9UZ
-      5f9H273DTurHw99elsCgEPrhy68Y+urVMa9VnKg5EvBbpFQqkqXYmycWUjGfmJd+
-      vz4Ranmaxm4+i2/kll2SW/JIK4gnoQNYMblDnpACCPMu6vPWI0cAJYi5iH8YiPWA
-      7AeauECHTe9otIZAEcD7zXNdcA2nKbz6u4g6F3363mWSGI7WuAph00z0lRSQy9Rq
-      fz7yjETxAoGBANKfNsf9x+BOI89CeJT//mqH7Lrk0Gk43KOCS+5RA0A9101scN27
-      skOHjfrGYX39VlqXkIHItjy6VQoWwxRbHdbpGOOehKX8CCkiRJ5U5jCfBvwB/M7K
-      6qpA0WhTtqwIcM2YKDJP5MVU1N5emYUAeerl12p5Kbe0bJDBev4douaHAoGBAMgx
-      Sh+lMLVScSe3yx1XEh9o629OR3eFST9KmPCxtmYLND/0TwE9bst6UwQbI/POepc+
-      caT0nJSMECquO5RDf1hSVT2GmOZ8G7K70TKIpcXFH4b36Fia9wBZUo57TkB5OriG
-      JpgFhxeEIPfI+USspYai/G7VqR0zJl6d8ZTAEeqlAoGAerwIwjXiuZUPTQGhHsKm
-      URHwI2CfChH2kNmmwbM3v8HJqvZcNvnfgXaGh/H+cdqk7ZmQvfBmMbErSPvGpiAK
-      nWer90gyaD8bykyLy/ARS5gAC+5kkWSxppCq9q6BrnIkucnG8rqXx14NxZ8+usBy
-      Sy2wf/0nEEP1V81HjLlcahUCgYA+vhP5LxDBA4GrbRMfsvZfGccQL3x+nSuDxqGA
-      bnI4MTLDCJLqVJKw+zmhg9AUzZXmaQ+9H10jwXIfrlPF+BGlYMiOa+zn7+XOcsby
-      C5nJDir/ZhtQCeF4HoadWVABLP2Wb5UQ+EqKuEKM5lQZjfKi69op8pT6LdnMtbvN
-      XxU+cQKBgQCHnzijhKg+cIZyxQO1AdPlV7tMemtfK64dbrlvIRU/dApffr0pHzrI
-      qVTcoCYm2nLblQ+YVVoTZ8D7AkSttQ3SVZdFfKmW75VNQIIRmIdyc418OCwSoXET
-      t0qz4tCJdYuF18N/dwtJhN8Q9tJkZ1/a5FTuj0K4puKfTjFEHwHP5Q==
-      -----END RSA PRIVATE KEY-----
-    publicKey: -----BEGIN PUBLIC KEY-----
-      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApLTwQcmR3WoO3taawC7H
-      Kz/erVJBG7dm+8lVSs0zC+fC+lOkVkKvmPXO1z1tYqvb36/HKK8kh707qNHIAEyW
-      uYOg8kdSyR2ui6RkCjcON+VkraEnNmdJ6qFYVofe1rIRriwlRLuSJiUMEvq3xO76
-      VmuAuIhFIUguHFNILZdFQrefphpqKCIzCDDsahEZAOkvRSUr+aFIDJ7W3F8QaG7l
-      axhkRrCMGmlmiejxo6lucKeAD4nBkXA1NIvFgb9Sa7vn9AbakXT38H74hKp7i3jr
-      fWVkYhm/UxoJ3ELCh4I/gK0lJadN7fbgy0Z+14J+esUDSljZL93drshYOA6ij6z7
-      AwIDAQAB
-      -----END PUBLIC KEY-----
+ oauth2:
+  clientId: "thanhdat"
+  clientSecret: "thanhdat@1995"
+  accesstoken_validity: 3600
+  refreshtoken_validity: 18000
+  privateKey: -----BEGIN RSA PRIVATE KEY-----
+    MIIEpAIBAAKCAQEApLTwQcmR3WoO3taawC7HKz/erVJBG7dm+8lVSs0zC+fC+lOk
+    VkKvmPXO1z1tYqvb36/HKK8kh707qNHIAEyWuYOg8kdSyR2ui6RkCjcON+VkraEn
+    NmdJ6qFYVofe1rIRriwlRLuSJiUMEvq3xO76VmuAuIhFIUguHFNILZdFQrefphpq
+    KCIzCDDsahEZAOkvRSUr+aFIDJ7W3F8QaG7laxhkRrCMGmlmiejxo6lucKeAD4nB
+    kXA1NIvFgb9Sa7vn9AbakXT38H74hKp7i3jrfWVkYhm/UxoJ3ELCh4I/gK0lJadN
+    7fbgy0Z+14J+esUDSljZL93drshYOA6ij6z7AwIDAQABAoIBAQCK9EOFnQK8Y4+s
+    HC1uWYiaSkYYvz5CndX6Mf8NHlUkhCCQhCQuyg/O4gHgwOgZyJe0/VzuS+RryBAe
+    +uzao8K9O/l6rQWAutPY55WmsJAERDlN6plkYnuPwRL/3Zz4UD5uTLwcYoqIN9UZ
+    5f9H273DTurHw99elsCgEPrhy68Y+urVMa9VnKg5EvBbpFQqkqXYmycWUjGfmJd+
+    vz4Ranmaxm4+i2/kll2SW/JIK4gnoQNYMblDnpACCPMu6vPWI0cAJYi5iH8YiPWA
+    7AeauECHTe9otIZAEcD7zXNdcA2nKbz6u4g6F3363mWSGI7WuAph00z0lRSQy9Rq
+    fz7yjETxAoGBANKfNsf9x+BOI89CeJT//mqH7Lrk0Gk43KOCS+5RA0A9101scN27
+    skOHjfrGYX39VlqXkIHItjy6VQoWwxRbHdbpGOOehKX8CCkiRJ5U5jCfBvwB/M7K
+    6qpA0WhTtqwIcM2YKDJP5MVU1N5emYUAeerl12p5Kbe0bJDBev4douaHAoGBAMgx
+    Sh+lMLVScSe3yx1XEh9o629OR3eFST9KmPCxtmYLND/0TwE9bst6UwQbI/POepc+
+    caT0nJSMECquO5RDf1hSVT2GmOZ8G7K70TKIpcXFH4b36Fia9wBZUo57TkB5OriG
+    JpgFhxeEIPfI+USspYai/G7VqR0zJl6d8ZTAEeqlAoGAerwIwjXiuZUPTQGhHsKm
+    URHwI2CfChH2kNmmwbM3v8HJqvZcNvnfgXaGh/H+cdqk7ZmQvfBmMbErSPvGpiAK
+    nWer90gyaD8bykyLy/ARS5gAC+5kkWSxppCq9q6BrnIkucnG8rqXx14NxZ8+usBy
+    Sy2wf/0nEEP1V81HjLlcahUCgYA+vhP5LxDBA4GrbRMfsvZfGccQL3x+nSuDxqGA
+    bnI4MTLDCJLqVJKw+zmhg9AUzZXmaQ+9H10jwXIfrlPF+BGlYMiOa+zn7+XOcsby
+    C5nJDir/ZhtQCeF4HoadWVABLP2Wb5UQ+EqKuEKM5lQZjfKi69op8pT6LdnMtbvN
+    XxU+cQKBgQCHnzijhKg+cIZyxQO1AdPlV7tMemtfK64dbrlvIRU/dApffr0pHzrI
+    qVTcoCYm2nLblQ+YVVoTZ8D7AkSttQ3SVZdFfKmW75VNQIIRmIdyc418OCwSoXET
+    t0qz4tCJdYuF18N/dwtJhN8Q9tJkZ1/a5FTuj0K4puKfTjFEHwHP5Q==
+    -----END RSA PRIVATE KEY-----
+  publicKey: -----BEGIN PUBLIC KEY-----
+    MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApLTwQcmR3WoO3taawC7H
+    Kz/erVJBG7dm+8lVSs0zC+fC+lOkVkKvmPXO1z1tYqvb36/HKK8kh707qNHIAEyW
+    uYOg8kdSyR2ui6RkCjcON+VkraEnNmdJ6qFYVofe1rIRriwlRLuSJiUMEvq3xO76
+    VmuAuIhFIUguHFNILZdFQrefphpqKCIzCDDsahEZAOkvRSUr+aFIDJ7W3F8QaG7l
+    axhkRrCMGmlmiejxo6lucKeAD4nBkXA1NIvFgb9Sa7vn9AbakXT38H74hKp7i3jr
+    fWVkYhm/UxoJ3ELCh4I/gK0lJadN7fbgy0Z+14J+esUDSljZL93drshYOA6ij6z7
+    AwIDAQAB
+    -----END PUBLIC KEY-----
 
 jwt:
   secretKey: "secret"
