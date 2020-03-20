@@ -10,38 +10,41 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
-@Configuration
-@EnableAuthorizationServer
-public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfig {
 
-    @Value("${jwt.secretKey}")
-    private String secretKey;
-
-    private AuthenticationManager authenticationManager;
-
-    @Autowired
-    public AuthorizationServerConfig(final AuthenticationManager authenticationManager) {
-        this.authenticationManager = authenticationManager;
-    }
-
-    @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-        security.tokenKeyAccess("permitAll()")
-                .checkTokenAccess("isAuthenticated()");
-    }
-
-    @Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.inMemory()
-                .withClient("ClientId")
-                .secret(secretKey)
-                .authorizedGrantTypes("authorization_code")
-                .scopes("user_info")
-                .autoApprove(true);
-    }
-
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(authenticationManager);
-    }
 }
+//@Configuration
+//@EnableAuthorizationServer
+//public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+//
+//    @Value("${jwt.secretKey}")
+//    private String secretKey;
+//
+//    private AuthenticationManager authenticationManager;
+//
+//    @Autowired
+//    public AuthorizationServerConfig(final AuthenticationManager authenticationManager) {
+//        this.authenticationManager = authenticationManager;
+//    }
+//
+//    @Override
+//    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+//        security.tokenKeyAccess("permitAll()")
+//                .checkTokenAccess("isAuthenticated()");
+//    }
+//
+//    @Override
+//    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+//        clients.inMemory()
+//                .withClient("ClientId")
+//                .secret(secretKey)
+//                .authorizedGrantTypes("authorization_code")
+//                .scopes("user_info")
+//                .autoApprove(true);
+//    }
+//
+//    @Override
+//    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+//        endpoints.authenticationManager(authenticationManager);
+//    }
+//}

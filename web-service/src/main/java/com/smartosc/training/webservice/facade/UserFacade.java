@@ -5,6 +5,6 @@ import com.smartosc.training.webservice.service.GeneralService;
 
 public interface UserFacade extends GeneralService<UserDTO> {
 
-    UserDTO findByUsername(String username);
+    UserDTO findByEmail(String email);
 
 }

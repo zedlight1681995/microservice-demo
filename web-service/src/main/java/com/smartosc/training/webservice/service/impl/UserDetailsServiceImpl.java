@@ -1,9 +1,10 @@
-package com.smartosc.training.webservice.security;
+package com.smartosc.training.webservice.service.impl;
 
 import com.smartosc.training.dto.RoleDTO;
 import com.smartosc.training.dto.UserDTO;
 import com.smartosc.training.webservice.facade.UserFacade;
 import com.smartosc.training.webservice.facade.mapper.RoleFacade;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -21,6 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserFacade userFacade;
     private final RoleFacade roleFacade;
 
+    @Autowired
     public UserDetailsServiceImpl(final UserFacade userFacade, final RoleFacade roleFacade) {
         this.userFacade = userFacade;
         this.roleFacade = roleFacade;
@@ -29,7 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
-            UserDTO user = userFacade.findByUsername(username);
+            UserDTO user = userFacade.findByEmail(username);
             List<RoleDTO> roles = roleFacade.findByUsername(username);
             List<GrantedAuthority> grandList = roles.stream()
                                 .map(o -> new SimpleGrantedAuthority(o.getName()))
@@ -38,7 +40,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                     true, true, user.isBlocked(),
                     grandList);
         } catch (Exception e) {
-            throw new UsernameNotFoundException(username + " not found!");
+            throw new UsernameNotFoundException("Account with email like " + username + " not found!");
         }
     }
 

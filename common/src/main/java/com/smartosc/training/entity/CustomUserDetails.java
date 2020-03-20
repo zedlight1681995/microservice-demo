@@ -12,12 +12,16 @@ public class CustomUserDetails extends User {
     private String uuid;
     private String username;
     private String fullName;
+    private boolean blocked;
+    private boolean enabled;
 
     public CustomUserDetails(UserDTO user) {
         super(user.getEmail(), user.getPassword(), user.getRoles());
         this.uuid = user.getUuid();
         this.username = user.getUserName();
         this.fullName = user.getFullName();
+        this.blocked = user.isBlocked();
+        this.enabled = user.isEnabled();
     }
 
     @Override
@@ -27,7 +31,7 @@ public class CustomUserDetails extends User {
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return this.blocked;
     }
 
     @Override
@@ -37,6 +41,6 @@ public class CustomUserDetails extends User {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return this.enabled;
     }
 }

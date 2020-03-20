@@ -19,7 +19,6 @@ import java.util.Optional;
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
-
     private final MessageSource messages;
 
     @Autowired

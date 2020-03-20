@@ -52,7 +52,7 @@ logging:
 
 config:
   oauth2:
-    clientid: thanhdat
+    clientId: thanhdat
     clientSecret: thanhdat@1995
     accesstoken_validity: 1
     refreshtoken_validity: 30
