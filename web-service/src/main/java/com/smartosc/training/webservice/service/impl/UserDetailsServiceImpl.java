@@ -34,7 +34,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             UserDTO user = userFacade.findByEmail(email);
             CustomUserDetails userDetails = null;
             if(user != null) {
-                List<RoleDTO> roles = roleFacade.findByEmail(email);
+                List<RoleDTO> roles = roleFacade.findByUsers_Email(email);
                 List<GrantedAuthority> grandList = null;
                 if (roles != null) {
                     grandList = roles.stream()

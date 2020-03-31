@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface RoleService extends GeneralService {
 
-    List<Role> findByEmail(String email);
+    List<Role> findByUsers_Email(String email);
 
 }

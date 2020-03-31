@@ -24,8 +24,8 @@ public class RoleFacadeImpl implements RoleFacade {
     }
 
     @Override
-    public List<RoleDTO> findByEmail(String email) {
-        List<Role> roles = roleService.findByEmail(email);
+    public List<RoleDTO> findByUsers_Email(String email) {
+        List<Role> roles = roleService.findByUsers_Email(email);
         return roles.stream()
                 .map(RoleMapper.INSTANCE::roleToRoleDTO)
                 .collect(Collectors.toList());

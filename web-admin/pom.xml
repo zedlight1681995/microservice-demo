@@ -11,11 +11,17 @@
     <name>Web Admin Module</name>
 
     <properties>
+        <yaml.version>1.25</yaml.version>
         <commons-io.version>2.5</commons-io.version>
         <spring.cloud.version>Greenwich.SR5</spring.cloud.version>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>${yaml.version}</version>
+        </dependency>
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>

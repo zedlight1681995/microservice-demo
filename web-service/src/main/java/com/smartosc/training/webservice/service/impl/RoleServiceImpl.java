@@ -30,8 +30,8 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<Role> findByEmail(String email) {
-        return findByEmail(email);
+    public List<Role> findByUsers_Email(String email) {
+        return roleRepository.findByUsers_Email(email);
     }
 
     @Override
