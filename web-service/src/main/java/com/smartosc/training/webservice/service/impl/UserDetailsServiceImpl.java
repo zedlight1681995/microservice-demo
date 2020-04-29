@@ -42,7 +42,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                             .collect(Collectors.toList());
                 }
                 user.setRoles(grandList);
-//                userDetails = new CustomUserDetails(user);
                 userDetails = new CustomUserDetails(user.getUuid(), email, user.getPassword(), user.getUserName(),
                         user.getFullName(), user.isBlocked(), user.isEnabled(),  user.getRoles());
             }
