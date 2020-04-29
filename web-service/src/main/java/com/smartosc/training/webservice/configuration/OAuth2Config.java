@@ -24,7 +24,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 import java.io.IOException;
 
 @Configuration
-@EnableConfigurationProperties
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Value("${config.oauth2.clientId}")
@@ -82,24 +81,4 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         return converter;
     }
 
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer properties() {
-        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer =
-                new PropertySourcesPlaceholderConfigurer();
-        YamlPropertiesFactoryBean yaml = new YamlPropertiesFactoryBean();
-        yaml.setResources(new ClassPathResource("application.yml"));
-        propertySourcesPlaceholderConfigurer.setProperties(yaml.getObject());
-        return propertySourcesPlaceholderConfigurer;
-    }
-
-    @Bean
-    public static PropertySource<?> loadYamlPropertiesInSpringEnv(ConfigurableApplicationContext apContext)
-            throws IOException {
-        YamlPropertySourceLoader loader = new YamlPropertySourceLoader();
-        PropertySource<?> applicationYamlPropertySource = loader
-                .load("application.yml", new ClassPathResource("application.yml")).get(0);
-        // It is necessary to add this in application context.
-        apContext.getEnvironment().getPropertySources().addLast(applicationYamlPropertySource);
-        return applicationYamlPropertySource;
-    }
 }
