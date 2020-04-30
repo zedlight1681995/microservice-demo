@@ -43,7 +43,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 }
                 user.setRoles(grandList);
                 userDetails = new CustomUserDetails(user.getUuid(), email, user.getPassword(), user.getUserName(),
-                        user.getFullName(), user.isBlocked(), user.isEnabled(),  user.getRoles());
+                        user.getFullName(), !user.isBlocked(), user.isEnabled(),  user.getRoles());
             }
             return userDetails;
         } catch (Exception e) {
