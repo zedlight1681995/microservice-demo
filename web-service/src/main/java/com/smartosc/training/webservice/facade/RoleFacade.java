@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface RoleFacade extends GeneralService<RoleDTO> {
 
-    List<RoleDTO> findByEmail(String email);
+    List<RoleDTO> findByUsers_Email(String email);
 
 }

@@ -19,7 +19,6 @@ import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenCo
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 @Configuration
-@ConfigurationProperties(prefix = "")
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Value("${config.oauth2.clientId}")
@@ -31,8 +30,6 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     @Value("${config.oauth2.publicKey}")
     private String publicKey;
 
-
-
     private final PasswordEncoder passwordEncoder;
     private final AuthenticationManager authenticationManager;
 
@@ -41,6 +38,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                         final AuthenticationManager authenticationManager) {
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
+        System.out.println(clientId);
     }
 
     @Override
