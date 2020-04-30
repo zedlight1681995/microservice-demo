@@ -3,10 +3,10 @@ server:
   port: 8083
   servlet:
     context-path: /auth
-
-security:
-  basic:
-    enabled: false
+#
+#security:
+#  basic:
+#    enabled: false
 
 spring:
   datasource:
@@ -91,7 +91,3 @@ config:
       fWVkYhm/UxoJ3ELCh4I/gK0lJadN7fbgy0Z+14J+esUDSljZL93drshYOA6ij6z7
       AwIDAQAB
       -----END PUBLIC KEY-----
-
-jwt:
-  secretKey: secret
-  expirationMs: 604800000

@@ -3,16 +3,10 @@ package com.smartosc.training.webservice.configuration;
 import com.smartosc.training.webservice.security.CustomTokenEnhancer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.env.YamlPropertySourceLoader;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.PropertySource;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -21,7 +15,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-import java.io.IOException;
+import static com.smartosc.training.webservice.utils.Constant.*;
 
 @Configuration
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
@@ -39,7 +33,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     private final AuthenticationManager authenticationManager;
 
     @Autowired
-    public OAuth2Config(final PasswordEncoder passwordEncoder,
+    public OAuth2Config(final BCryptPasswordEncoder passwordEncoder,
                         final AuthenticationManager authenticationManager) {
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
@@ -55,8 +49,8 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory().withClient(clientId)
                 .secret(passwordEncoder.encode(clientSecret))
-                .scopes("read", "write")
-                .authorizedGrantTypes("password", "refresh_token")
+                .scopes(SCOPE_READ, SCOPE_WRITE)
+                .authorizedGrantTypes(GRANT_TYPE_PASSWORD, GRANT_TYPE_REFRESH_TOKEN)
                 .accessTokenValiditySeconds(3600)
                 .refreshTokenValiditySeconds(18000);
     }

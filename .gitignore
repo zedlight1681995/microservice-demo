@@ -14,7 +14,11 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
+<<<<<<< HEAD
 .idea
+=======
+.idea/
+>>>>>>> update code for oauth2 V1
 *.iws
 *.iml
 *.ipr
