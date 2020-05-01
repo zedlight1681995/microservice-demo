@@ -79,6 +79,7 @@
 		<module>web-admin</module>
 		<module>web-client</module>
 		<module>web-service</module>
+		<module>web-resource</module>
 	</modules>
 
 </project>

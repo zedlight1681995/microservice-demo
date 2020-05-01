@@ -1,4 +1,4 @@
-package com.smartosc.training.webservice.configuration;
+package com.smartosc.training.webresource.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

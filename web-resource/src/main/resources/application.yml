@@ -1,0 +1,63 @@
+#==== WEB RESOURCE CONFIGURATION =====#
+server:
+  port: 8084
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: resourceserver
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: "jdbc:mysql://localhost:3306/microservice_demo?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&createDatabaseIfNotExist=true&autoreconnect=true&serverTimezone=UTC"
+    username: "root"
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 10MB
+      max-request-size: 15MB
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+
+logging:
+  level:
+    root: INFO
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              basicBinder: TRACE
+    com:
+      smartosc:
+        training:
+          webserver: TRACE
+
+security:
+  oauth2:
+    resource:
+      jwt:
+        key-value:
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApLTwQcmR3WoO3taawC7H
+          Kz/erVJBG7dm+8lVSs0zC+fC+lOkVkKvmPXO1z1tYqvb36/HKK8kh707qNHIAEyW
+          uYOg8kdSyR2ui6RkCjcON+VkraEnNmdJ6qFYVofe1rIRriwlRLuSJiUMEvq3xO76
+          VmuAuIhFIUguHFNILZdFQrefphpqKCIzCDDsahEZAOkvRSUr+aFIDJ7W3F8QaG7l
+          axhkRrCMGmlmiejxo6lucKeAD4nBkXA1NIvFgb9Sa7vn9AbakXT38H74hKp7i3jr
+          fWVkYhm/UxoJ3ELCh4I/gK0lJadN7fbgy0Z+14J+esUDSljZL93drshYOA6ij6z7
+          AwIDAQAB
+          -----END PUBLIC KEY-----
