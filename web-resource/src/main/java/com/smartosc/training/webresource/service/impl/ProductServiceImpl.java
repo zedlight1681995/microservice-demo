@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 
@@ -30,6 +31,11 @@ public class ProductServiceImpl implements ProductService {
             @Qualifier("bundleMessageSource") final MessageSource messages) {
         this.productRepository = productRepository;
         this.messages = messages;
+    }
+
+    @Override
+    public List<Product> findAll() {
+        return productRepository.findAll();
     }
 
     @Override

@@ -7,14 +7,9 @@ import com.smartosc.training.webresource.service.ProductService;
 import com.smartosc.training.webresource.service.impl.ProductServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.MediaTypes;
-import org.springframework.hateoas.PagedModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +17,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -42,11 +39,14 @@ public class ProductRESTController {
             @RequestParam(defaultValue = "id") String sortBy,
             @RequestParam(defaultValue = "DESC") String sort,
             PagedResourcesAssembler<ProductDTO> assembler) {
-        Pageable pageable = PageRequest.of(pageNo, pageSize,
-                Sort.by(Sort.Direction.fromString(sort), sortBy));
-        Page<Product> results = productService.findAll(pageable);
+//        Pageable pageable = PageRequest.of(pageNo, pageSize,
+//                Sort.by(Sort.Direction.fromString(sort), sortBy));
+        List<Product> results = productService.findAll();
 
-        Page<ProductDTO> responseData = results.map(ProductMapper.INSTANCE::productToProductDTO);
+        List<ProductDTO> responseData = results.stream()
+                .map(ProductMapper.INSTANCE::productToProductDTO)
+                .collect(Collectors.toList());
+
         responseData.forEach(o -> {
                     o.add(WebMvcLinkBuilder
                             .linkTo(ProductRESTController.class)
@@ -60,7 +60,8 @@ public class ProductRESTController {
                 }
         );
 
-        PagedModel<ProductDTO> resultModels = assembler.toModel(responseData);
+//        PagedModel<ProductDTO> resultModels = assembler.toModel(responseData);
+        CollectionModel<ProductDTO> resultModels = new CollectionModel<>(responseData);
         resultModels.add(WebMvcLinkBuilder
                 .linkTo(WebMvcLinkBuilder.methodOn(ProductRESTController.class)
                         .createProduct(new ProductDTO())).withRel("create"));
