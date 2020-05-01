@@ -15,10 +15,14 @@ target/
 
 ### IntelliJ IDEA ###
 <<<<<<< HEAD
+<<<<<<< HEAD
 .idea
 =======
 .idea/
 >>>>>>> update code for oauth2 V1
+=======
+.idea/
+>>>>>>> 4d46472b4ae0e13812b55bbcebed19e4cf567a26
 *.iws
 *.iml
 *.ipr
