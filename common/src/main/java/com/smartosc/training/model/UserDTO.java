@@ -1,4 +1,4 @@
-package com.smartosc.training.dto;
+package com.smartosc.training.model;
 
 import lombok.Getter;
 import lombok.Setter;

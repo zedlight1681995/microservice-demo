@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -33,15 +32,14 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     private final AuthenticationManager authenticationManager;
 
     @Autowired
-    public OAuth2Config(final BCryptPasswordEncoder passwordEncoder,
+    public OAuth2Config(final PasswordEncoder passwordEncoder,
                         final AuthenticationManager authenticationManager) {
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
-        System.out.println(clientId);
     }
 
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+    public void configure(AuthorizationServerSecurityConfigurer security) {
         security.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
     }
 
@@ -56,7 +54,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     }
 
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.authenticationManager(authenticationManager)
                 .tokenStore(tokenStore())
                 .accessTokenConverter(tokenEnhancer());

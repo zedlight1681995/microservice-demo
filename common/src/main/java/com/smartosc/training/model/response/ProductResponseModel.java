@@ -1,19 +1,18 @@
-package com.smartosc.training.dto;
+package com.smartosc.training.model.response;
 
 import com.smartosc.training.utils.Constraint;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.hateoas.RepresentationModel;
 
 import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-@Getter
-@Setter
-public class ProductDTO extends RepresentationModel<ProductDTO> {
+@Data
+public class ProductResponseModel extends RepresentationModel<ProductResponseModel> {
 
     private Long id;
     @NotEmpty(message = Constraint.PRODUCT_NAME_EMPTY)

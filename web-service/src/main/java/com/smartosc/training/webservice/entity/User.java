@@ -56,9 +56,6 @@ public class User {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Order> orders;
-
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "user_role",
                 joinColumns = { @JoinColumn(name = "user_id") },

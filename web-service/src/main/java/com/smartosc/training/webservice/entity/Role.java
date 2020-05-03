@@ -27,10 +27,4 @@ public class Role {
                 inverseJoinColumns = { @JoinColumn(name = "user_id") })
     private List<User> users;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "role_permission",
-                joinColumns = { @JoinColumn(name = "role_id") },
-                inverseJoinColumns = { @JoinColumn(name = "permission_id") })
-    private List<Permission> permissions;
-
 }

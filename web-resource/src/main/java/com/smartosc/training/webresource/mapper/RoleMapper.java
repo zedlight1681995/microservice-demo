@@ -1,6 +1,6 @@
 package com.smartosc.training.webresource.mapper;
 
-import com.smartosc.training.dto.RoleDTO;
+import com.smartosc.training.model.RoleDTO;
 import com.smartosc.training.webresource.entity.Role;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

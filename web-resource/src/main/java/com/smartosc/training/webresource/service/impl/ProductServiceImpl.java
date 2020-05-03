@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,14 +35,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findAll() {
-        return productRepository.findAll();
-    }
-
-    @Override
     @Transactional(readOnly = true)
-    public Page<Product> findAll(Pageable pageable) {
-        return productRepository.findByStatus(1, pageable);
+    public Page<Product> findAll(Specification<Product> spec, Pageable pageable) {
+        return productRepository.findAll(spec, pageable);
     }
 
     @Override

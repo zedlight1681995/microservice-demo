@@ -3,8 +3,7 @@ package com.smartosc.training.webresource.exception;
 import com.smartosc.training.entity.APIError;
 import com.smartosc.training.entity.APIErrorDetail;
 import com.smartosc.training.exception.EntityNotFoundException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
@@ -23,18 +22,17 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
-
-    private Logger logger = LoggerFactory.getLogger(RestExceptionHandler.class);
 
     @ExceptionHandler(EntityNotFoundException.class)
     protected ResponseEntity<Object> handleEntityNotFound(
             EntityNotFoundException ex) {
         APIError apiError = new APIError(HttpStatus.NOT_FOUND);
         apiError.setMessage(ex.getMessage());
-        logger.error(ex.getMessage());
+        log.error(ex.getMessage());
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 
@@ -53,7 +51,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             errorDetails.add(apiSubError);
         });
         apiError.setErrorDetails(errorDetails);
-        logger.error(ex.getMessage());
+        log.error(ex.getMessage());
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 
@@ -62,7 +60,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             NoHandlerFoundException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         APIError apiError = new APIError(status);
         apiError.setMessage(ex.getMessage());
-        logger.error(ex.getMessage());
+        log.error(ex.getMessage());
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 
@@ -71,7 +69,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             HttpRequestMethodNotSupportedException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         APIError apiError = new APIError(status);
         apiError.setMessage(ex.getMessage());
-        logger.error(ex.getMessage());
+        log.error(ex.getMessage());
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 
@@ -80,7 +78,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
             MissingPathVariableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         APIError apiError = new APIError(status);
         apiError.setMessage(ex.getMessage());
-        logger.error(ex.getMessage());
+        log.error(ex.getMessage());
         return new ResponseEntity<>(apiError, apiError.getStatus());
     }
 }

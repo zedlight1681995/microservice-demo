@@ -1,6 +1,6 @@
 package com.smartosc.training.validation.validator;
 
-import com.smartosc.training.dto.UserDTO;
+import com.smartosc.training.model.UserDTO;
 import com.smartosc.training.validation.ValidMatchingPassword;
 
 import javax.validation.ConstraintValidator;

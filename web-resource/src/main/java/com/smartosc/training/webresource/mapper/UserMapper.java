@@ -1,6 +1,6 @@
 package com.smartosc.training.webresource.mapper;
 
-import com.smartosc.training.dto.UserDTO;
+import com.smartosc.training.model.UserDTO;
 import com.smartosc.training.webresource.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

@@ -1,6 +1,5 @@
 package com.smartosc.training.entity;
 
-import com.smartosc.training.dto.UserDTO;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
