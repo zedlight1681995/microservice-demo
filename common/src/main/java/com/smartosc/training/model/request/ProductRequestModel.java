@@ -12,6 +12,7 @@ import java.util.Date;
 public class ProductRequestModel {
 
     private Long id;
+    @NotNull(message = Constraint.PRODUCT_NAME_EMPTY)
     @NotEmpty(message = Constraint.PRODUCT_NAME_EMPTY)
     private String name;
     private String description;
