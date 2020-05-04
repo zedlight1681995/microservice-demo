@@ -4,8 +4,8 @@ import com.smartosc.training.webservice.entity.Role;
 
 import java.util.List;
 
-public interface RoleService extends GeneralService {
+public interface RoleService {
 
-    List<Role> findByUsers_Email(String email);
+    List<Role> findByUsersEmail(String email);
 
 }

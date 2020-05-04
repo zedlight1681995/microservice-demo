@@ -1,6 +1,5 @@
 package com.smartosc.training.entity;
 
-import com.smartosc.training.dto.UserDTO;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,6 +12,7 @@ import java.util.List;
 public class CustomUserDetails extends User {
 
     private String uuid;
+    private String email;
     private String username;
     private String fullName;
     private boolean blocked;
@@ -23,6 +23,7 @@ public class CustomUserDetails extends User {
             String fullName, boolean blocked, boolean enabled, List<GrantedAuthority> roles) {
         super(email, password, roles);
         this.uuid = uuid;
+        this.email = email;
         this.username = username;
         this.fullName = fullName;
         this.blocked = blocked;
