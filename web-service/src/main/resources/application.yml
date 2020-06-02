@@ -5,8 +5,8 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/microservice_demo?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&createDatabaseIfNotExist=true&autoreconnect=true&serverTimezone=UTC"
-    username: "root"
+    url: jdbc:mysql://localhost:3306/microservice_demo?useUnicode=yes&characterEncoding=UTF-8&useSSL=false&createDatabaseIfNotExist=true&autoreconnect=true&serverTimezone=UTC
+    username: root
     password:
   jpa:
     show-sql: true

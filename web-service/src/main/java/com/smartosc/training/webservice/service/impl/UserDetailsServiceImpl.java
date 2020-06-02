@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -42,15 +43,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             UserDTO user = UserMapper.INSTANCE.userToUserDTO(result);
             CustomUserDetails userDetails = null;
             if (user != null) {
-                List<Role> results = roleService.findByUsersEmail(email);
-                List<GrantedAuthority> grandList = null;
+                Set<Role> results = roleService.findByUsersEmail(email);
+                Set<RoleDTO> roles = null;
+                Set<GrantedAuthority> grandList = null;
                 if(!CollectionUtils.isEmpty(results)) {
-                    List<RoleDTO> roles = results.stream()
+                    roles = results.stream()
                             .map(RoleMapper.INSTANCE::roleToRoleDTO)
-                            .collect(Collectors.toList());
+                            .collect(Collectors.toSet());
                     grandList = roles.stream()
                             .map(o -> new SimpleGrantedAuthority(o.getName()))
-                            .collect(Collectors.toList());
+                            .collect(Collectors.toSet());
                 }
                 user.setRoles(grandList);
                 userDetails = new CustomUserDetails(user.getUuid(), email, user.getPassword(), user.getUserName(),

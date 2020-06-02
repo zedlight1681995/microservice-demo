@@ -9,6 +9,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -35,6 +36,6 @@ public class UserDTO extends RepresentationModel<UserDTO> {
     private boolean blocked;
     private Date createdAt;
     private Date updatedAt;
-    private List<GrantedAuthority> roles;
+    private Set<GrantedAuthority> roles;
 
 }

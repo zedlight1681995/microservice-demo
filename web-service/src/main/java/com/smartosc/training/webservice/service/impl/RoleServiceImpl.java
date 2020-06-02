@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -21,7 +22,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<Role> findByUsersEmail(String email) {
+    public Set<Role> findByUsersEmail(String email) {
         return roleRepository.findByUsersEmail(email);
     }
 

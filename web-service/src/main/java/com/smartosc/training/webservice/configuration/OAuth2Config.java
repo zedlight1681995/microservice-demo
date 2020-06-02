@@ -57,16 +57,16 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         endpoints.authenticationManager(authenticationManager)
                 .tokenStore(tokenStore())
-                .accessTokenConverter(tokenEnhancer());
+                .accessTokenConverter(accessTokenConverter());
     }
 
     @Bean
     public JwtTokenStore tokenStore() {
-        return new JwtTokenStore(tokenEnhancer());
+        return new JwtTokenStore(accessTokenConverter());
     }
 
     @Bean
-    public JwtAccessTokenConverter tokenEnhancer() {
+    public JwtAccessTokenConverter accessTokenConverter() {
         JwtAccessTokenConverter converter = new CustomTokenEnhancer();
         converter.setSigningKey(privateKey);
         converter.setVerifierKey(publicKey);
