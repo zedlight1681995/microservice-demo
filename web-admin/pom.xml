@@ -11,7 +11,7 @@
     <name>Web Admin Module</name>
 
     <properties>
-        <commons-io.version>2.5</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <spring.cloud.version>Greenwich.SR5</spring.cloud.version>
     </properties>
 
