@@ -13,7 +13,7 @@
     <properties>
         <guava.version>r05</guava.version>
         <passay.version>1.0</passay.version>
-        <hibernate-validator.version>6.1.2.Final</hibernate-validator.version>
+        <hibernate-validator.version>6.1.5.Final</hibernate-validator.version>
     </properties>
 
     <dependencies>
